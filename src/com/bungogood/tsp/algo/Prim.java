@@ -20,7 +20,7 @@ public class Prim {
     public static MST solve(Graph graph) {
         MST mst = new MST();
 
-        Vertex v = graph.getVertices().iterator().next();
+        Vertex v = graph.getVertex();
 
         PriorityQueue<Edge> edges = new PriorityQueue<Edge>(graph.getEdges(v));
 

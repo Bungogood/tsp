@@ -88,8 +88,20 @@ public class Graph {
         return getEdges().contains(edge);
     }
 
+    public Vertex getVertex() {
+        return vertices.iterator().next();
+    }
+
     public Set<Vertex> getVertices() {
         return new HashSet<Vertex>(vertices);
+    }
+
+    public Edge getEdge() {
+        return edges.iterator().next();
+    }
+
+    public Edge getEdge(Vertex u, Vertex v) {
+        return outgoing.get(u).get(v);
     }
 
     public Set<Edge> getEdges() {
