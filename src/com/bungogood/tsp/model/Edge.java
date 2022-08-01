@@ -1,15 +1,6 @@
 package com.bungogood.tsp.model;
 
-public class Edge implements Comparable<Edge> {
-    public final Vertex from;
-    public final Vertex to;
-    public final int distance;
-
-    public Edge(Vertex from, Vertex to, int distance) {
-        this.from = from;
-        this.to = to;
-        this.distance = distance;
-    }
+public record Edge(Vertex from, Vertex to, int distance) implements Comparable<Edge> {
 
     @Override
     public int compareTo(Edge edge) {
@@ -18,6 +9,6 @@ public class Edge implements Comparable<Edge> {
 
     @Override
     public String toString() {
-        return from.id + "->" + to.id + ":" + distance;
+        return from.id() + "->" + to.id() + ":" + distance;
     }
 }

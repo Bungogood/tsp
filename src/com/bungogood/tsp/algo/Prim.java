@@ -27,9 +27,9 @@ public class Prim {
         while (!edges.isEmpty() && mst.order() != graph.order()) {
             Edge edge = edges.remove();
 
-            if (!mst.contains(edge.to)) {
+            if (!mst.contains(edge.to())) {
                 mst.add(edge);
-                edges.addAll(graph.getEdges(edge.to));
+                edges.addAll(graph.getEdges(edge.to()));
             }
         }
 

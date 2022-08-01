@@ -35,10 +35,10 @@ public class Graph {
 
     public boolean add(Edge edge) {
         if (!edges.add(edge)) return false;
-        add(edge.from);
-        add(edge.to);
-        outgoing.get(edge.from).put(edge.to, edge);
-        incoming.get(edge.to).put(edge.from, edge);
+        add(edge.from());
+        add(edge.to());
+        outgoing.get(edge.from()).put(edge.to(), edge);
+        incoming.get(edge.to()).put(edge.from(), edge);
         return true;
     }
 
@@ -46,11 +46,11 @@ public class Graph {
         if (!vertices.remove(vertex)) return false;
 
         for (Edge edge : outgoing.get(vertex).values()) {
-            incoming.get(edge.to).remove(edge.from);
+            incoming.get(edge.to()).remove(edge.from());
         }
 
         for (Edge edge : incoming.get(vertex).values()) {
-            outgoing.get(edge.from).remove(edge.to);
+            outgoing.get(edge.from()).remove(edge.to());
         }
 
         outgoing.remove(vertex);
@@ -62,8 +62,8 @@ public class Graph {
     public boolean remove(Edge edge) {
         if (!edges.remove(edge)) return false;
 
-        incoming.get(edge.to).remove(edge.from);
-        outgoing.get(edge.from).remove(edge.to);
+        incoming.get(edge.to()).remove(edge.from());
+        outgoing.get(edge.from()).remove(edge.to());
 
         return true;
     }
@@ -129,12 +129,12 @@ public class Graph {
     }
 
     public int dist(Vertex u, Vertex v) {
-        return outgoing.get(u).get(v).distance;
+        return outgoing.get(u).get(v).distance();
     }
 
     public int cost() {
         int total = 0;
-        for (Edge edge : edges) total += edge.distance;
+        for (Edge edge : edges) total += edge.distance();
         return total;
     }
 }

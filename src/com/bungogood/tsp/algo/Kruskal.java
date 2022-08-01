@@ -32,9 +32,9 @@ public class Kruskal {
         while (!edges.isEmpty() && mst.order() != graph.order()) {
             Edge edge = edges.remove();
 
-            if (findRoot(edge.from, parents) != findRoot(edge.to, parents)) {
-                reverse(edge.from, parents);
-                parents.put(edge.from, edge.to);
+            if (findRoot(edge.from(), parents) != findRoot(edge.to(), parents)) {
+                reverse(edge.from(), parents);
+                parents.put(edge.from(), edge.to());
                 mst.add(edge);
             }
         }

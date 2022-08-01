@@ -43,10 +43,10 @@ public class OneTree {
         Edge smallest = null;
 
         for (Edge edge : graph.getEdges(vertex)) {
-            if (smallest == null || edge.distance < smallest.distance) {
+            if (smallest == null || edge.distance() < smallest.distance()) {
                 small = smallest;
                 smallest = edge;
-            } else if (small == null || edge.distance < small.distance) {
+            } else if (small == null || edge.distance() < small.distance()) {
                 small = edge;
             }
         }
