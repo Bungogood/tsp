@@ -1,5 +1,6 @@
 package com.bungogood.tsp;
 
+import com.bungogood.tsp.model.Graph;
 import com.bungogood.tsp.model.TSP;
 import com.bungogood.tsp.model.Vertex;
 
@@ -10,16 +11,22 @@ import java.io.IOException;
 public class IO {
 
     public static TSP readTSP(String filename) {
-        TSP graph = new TSP();
+        return (TSP) readVertices(filename, new TSP());
+    }
 
-        double lat, lng;
+    public static Graph readVertices(String filename) {
+        return readVertices(filename, new Graph());
+    }
+
+    public static Graph readVertices(String filename, Graph graph) {
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split("\t");
-                lat = Double.parseDouble(values[1]);
-                lng = Double.parseDouble(values[2]);
+                double lat = Double.parseDouble(values[1]);
+                double lng = Double.parseDouble(values[2]);
                 graph.add(new Vertex(values[0], values[3], lat, lng));
             }
             br.close();
