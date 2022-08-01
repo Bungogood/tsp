@@ -1,7 +1,6 @@
 package com.bungogood.tsp.algo;
 
 import com.bungogood.tsp.model.*;
-
 import java.util.*;
 
 /**
