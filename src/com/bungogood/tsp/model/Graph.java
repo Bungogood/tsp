@@ -125,7 +125,7 @@ public class Graph {
         return in;
     }
 
-    public int dist(Vertex u, Vertex v) {
+    public int cost(Vertex u, Vertex v) {
         return outgoing.get(u).get(v).distance();
     }
 

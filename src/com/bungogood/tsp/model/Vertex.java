@@ -11,4 +11,9 @@ public record Vertex(String id, String name, double lat, double lng) {
         working = Radius * 2 * Math.atan2(Math.sqrt(working), Math.sqrt(1 - working));
         return (int) working;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

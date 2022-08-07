@@ -8,5 +8,6 @@ public class Main {
         TSP tsp = IO.readTSP("data/continental.txt");
         int lowerBound = OneTree.lowerBound(tsp);
         System.out.println("lower bound: " + lowerBound);
+        System.out.println((float) Greedy.upperBound(tsp) / lowerBound);
     }
 }
