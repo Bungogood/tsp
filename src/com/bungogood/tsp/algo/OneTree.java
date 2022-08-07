@@ -35,7 +35,7 @@ public class OneTree {
         Graph shrunk = new Graph(graph);
         shrunk.remove(vertex);
 
-        MST mst = Prim.solve(shrunk);
+        MST mst = Prim.mst(shrunk);
         assert mst != null;
         Graph oneTree = new Graph(mst);
 

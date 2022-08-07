@@ -18,7 +18,7 @@ import java.util.*;
  */
 
 public class Kruskal {
-    public static MST solve(Graph graph) {
+    public static MST mst(Graph graph) {
         MST mst = new MST();
 
         Queue<Edge> edges = new PriorityQueue<Edge>(graph.getEdges());

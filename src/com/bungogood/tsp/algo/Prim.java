@@ -16,7 +16,7 @@ import java.util.PriorityQueue;
  */
 
 public class Prim {
-    public static MST solve(Graph graph) {
+    public static MST mst(Graph graph) {
         MST mst = new MST();
 
         Vertex v = graph.getVertex();
